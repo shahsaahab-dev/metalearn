@@ -18,6 +18,7 @@ get_header();
                 if($custom_try->have_posts()): while($custom_try->have_posts()): $custom_try->the_post();
                 global $post;
                 $download_link = get_post_meta(get_post_meta($post->ID,'custom_download',true),'_wp_attached_file',true);
+                $custom_date = get_post_meta($post->ID,'custom_date',true);
             ?>
 
 
@@ -26,6 +27,8 @@ get_header();
 
                 <p><?php echo get_post_meta($post->ID,'custom_name',true); ?></p>
                 <p><img src="<?php echo esc_url(bloginfo('url')); ?>/wp-content/uploads/<?php echo $download_link; ?>" alt="" width="150px" height="150px"></p>
+                <p><?php echo $custom_date; ?></p>
+                <hr>
                 <!-- End here -->
 
                     <?php 
